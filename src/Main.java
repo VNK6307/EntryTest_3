@@ -1,23 +1,14 @@
 import java.util.ArrayList;
 
-public class Input {
+public class Main {
     public static void main(String[] args) {
         String targetText1 = "генрих играет! илюбитшколу 3";
         String targetText2 = "Я люблю джаву всем сердцем!";
         String targetText3 = "генрих играет! илюбитшколу 0";
 
-        String input = "Ввее-дно   три пробела+";// ToDo Переделать на ввод из консоли  и добавить отображение введенного текста
+
+        String input = "генрих1  играет+2   л-июбит0школу";
         String modifiedText = textModifier(input);
-        printResult(modifiedText);
-        System.out.println();
-
-        input = "Введено   дв -араза     по     пять   пробелов+";
-        modifiedText = textModifier(input);
-        printResult(modifiedText);
-        System.out.println();
-
-        input = "генрих1  играет+2   л-июбит0школу";
-        modifiedText = textModifier(input);
         printResult(modifiedText);
         checkResult(modifiedText, targetText1);
         System.out.println();
@@ -50,7 +41,10 @@ public class Input {
     public static String textModifier(String text) {
 
         char[] inputtedText = text.toCharArray();
-        ArrayList<Character> modifiedText = Digits.digitsProcessing(Plus.deletePluses(Dash.changePlaces(Spaces.deleteSpaces(inputtedText))));
+        ArrayList<Character> modifiedText = Digits.digitsProcessing(
+                Plus.deletePluses(
+                        Dash.changePlaces(
+                                Spaces.deleteSpaces(inputtedText))));
 
         StringBuilder builtText = new StringBuilder();
         for (Character ch : modifiedText) {
